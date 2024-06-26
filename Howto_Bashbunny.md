@@ -260,14 +260,17 @@ Mount the BashBunny into your host and check out the folders to see if you have 
 Usually the information is stored in a file inside the ```/Bashbunny/loot/``` folder. But again, 
 check out the ```payload.txt``` to make sure where you should find the loot.
 
+# WIP WIP WIP WIP
+## Going pro? (or just... dumb?) upgrade debian 8 (jessie) to debian 11 (bullseye)
+At the moment Debian 8 (codename: jessie) is currently shipped with the Bashbunny most up to date firmware. This Debian version has already been end of life for some time. This causes a lot of trouble if you want to upgrade python2 to python3 for example (python2 is default in jessie, but now we prefer python3 right...? right?) . Besides python versions, anything you want to install with ```apt``` causes you a lot of trouble when your current distro is EOL. Of course there are workarounds to fix the ```apt``` but why not try to upgrade your linux distro on the Bashbunny? 
 
-# Voor de pro: upgrade debian 8 (jessie) naar debian 11 (bullseye)
-Op het moment van schrijven (januari 2024) wordt alleen debian 8 in de nieuwste firmware van de bashbunny meegeleverd. Debian 8 (codename: jessie) is al een tijd je 'end-of-life'. Dat betekent dat als je met ```apt``` software wil installeren (zoals python), dat het of niet meer kan, of je krijgt een oude versie. Ik wilde de bashbunny vooral upgraden omdat ik python 3 erop wilde krijgen, en mee wilde lopen met nieuwe versies van python. Welke reden je ook hebt, hier is de beschrijving voor het upgraden van debian 8 naar debian 11. Je hebt er wel kennis over Linux voor nodig, dus zorg er voor dat je weet wat je doet.
-
-**Onderstaande is onder de aanname dat je host een linux systeem is** (dus de bashbunny is gekoppeld in een systeem waar linux op draait).
+**Careful! Hak5 does not recommend this and this may brick your device. Make sure you know what you are doing or how to restore your Bashbunny!** 
 
 ## Step 1: Connect the bashbunny with the internet
-Om zoiets als ```apt update``` te draaien, maakt linux met apt-repo's verbinding. Typisch heb je hier internet voor nodig. Gelukkig kan je de Bashbunny ook als ethernet poort laten functioneren. Daarvoor zijn ook online handleidingen beschikbaar dus als je dit al weet en kan skip dan deze stap.
+This step is already described in official documentations. If you know how to do this, skip this step.
+
+To run ```apt update``` you typically need to be able to fetch the APT repos which usually come from the internet. Therefore it is nice to connect your Bunny with the internet to make things a lot easier. Fortunately your Bunny can act as an Ethernet device to get access to the internet so follow these steps below:
+
 ### Update your payload
 Start by changing one of the ```payload.txt``` files. Remember, if you change the ```payload.txt``` in the ```switch1``` folder, your bashbunny should later be armed in the position for the ```switch1``` payload (see [Switches Bashbunny](#switches-bashbunny) ).
 your ```payload.txt``` file should look as follows (note: this attackmode is for Linux hosts. Use another tutorial if you have a different OS) :
@@ -286,6 +289,7 @@ Download the shell script from: http://www.bashbunny.com/bb.sh like so:
 ```commandline
 $ wget bashbunny.com/bb.sh
 ```
+(Check the shell script if you want to make sure it is not shady)
 
 Now execute the script as root. Don't forget to give the file execution rights (with ```chmod +x bb.sh``` for example). If you have run this script already once, it should look as follows:
 
