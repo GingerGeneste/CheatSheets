@@ -27,7 +27,7 @@ The modes:
 
 ## First Start Guide
 After opening the Bashbunny package, you want to get started immediately. As already explained, the bashbunny is both a Linux system as a Mass Storage device. When using the Bashbunny for the first time, you can just handle it as if it is a regular USB mass storage device.
-If you want to know how to get shell-access, refer to section [Starting guide for shell toegang](#starting-guide-for-shell-toegang).
+If you want to know how to get shell-access, refer to section [Starting guide for shell access](#starting-guide-for-shell-access).
 
 For your first start, using the Bashbunny as USB mass storage device is however sufficient.
 
@@ -118,8 +118,19 @@ See https://forums.hak5.org/topic/40971-info-tools/ for some of these ```.deb```
 
 The ```.deb``` file is just an archive (like .zip files) which is executed automatically by the Bashbunny next time the Bashbunny is launched into Arming Mode. 
 During execution, the Bashbunny extracts files into the ```tools``` directory and possibly installs some software libraries if present in the ```.deb``` file. 
-After the Bashbunny is done flashing purple, all dependencies for the payload have been installed. 
-**The ```payload.txt``` however, still needs to be added by the user.** . 
+After the Bashbunny is done flashing purple, all dependencies for the payload should have been installed. 
+
+Sometimes, the debfile is unpacked with errors. When just looking at the USB and remounting it, there is no way to tell if the debian file was unpacked succesfully.
+To make sure everything works, you can also just call the debian file through your shell (as explained in [Starting guide for shell access](#starting-guide-for-shell-access) :
+
+```
+root@bunny:~/udisk# ./responder-bunny.deb
+```
+
+Now you can directly tell from the shell if the debian file was extracted without errors.
+
+
+**NOTE: Only using the deb file is not enough! You still need to add the ```payload.txt``` file in one of the switch directories.** . 
 
 Place this ```payload.txt``` either in the switch1 or switch2 folder. Obviously, if you place the ```payload.txt``` in ```/BashBunny/payloads/switch1``` your tool executes when you switch the Bashbunny button into the **Switch 1 Payload** position.
 
