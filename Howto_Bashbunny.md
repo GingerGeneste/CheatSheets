@@ -1,5 +1,5 @@
 # Bashbunny Mark II Reference Guide for starters
-This guide is written for the Bashbunny Mark II. Most of the following info is already documented online but on many different places. The official Hak5 documentation was not sufficient for me so i combined many different sources to get my Bashbunny how I wanted it. Therefore I decided to make a reference guide tailored to my needs such that it is all on one place.
+This guide is written for the Bashbunny Mark II. Most of the following info is already documented online but on many different places. Make sure to check out the official Hak5 sources and other blogposts as you wish! The descriptions below are not my inventions but just a collection of the information I found most useful.
 
 The guide is written for starters, who have little knowledge on the Bashbunny itself. Later on it requires you to have some knowledge on Linux systems as this is the OS I run on my host and is running on the Bashbunny.
 All commands used in this Reference Guide is aimed at users who run a Linux distribution (in my case an Ubuntu LTS distribution). You'll probably be able to translate this to other OS's yourself if you feel more comfortable to those.
