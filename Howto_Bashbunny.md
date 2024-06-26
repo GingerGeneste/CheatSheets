@@ -193,7 +193,7 @@ The baudrate for USB is usually ```115200``` , so a safe guess if you are cluele
 Connecting with the Bashbunny using screen on your Linux host can be done as follows:
 
 ```commandline
-screen /dev/tty/ACM0 115200
+screen /dev/ttyACM0 115200
 ```
 **You may need to use sudo with this command.**
 
