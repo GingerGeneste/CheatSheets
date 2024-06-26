@@ -113,7 +113,7 @@ https://github.com/hak5/bashbunny-payloads/tree/master/payloads
 Just select any of the interesting payloads and follow its readme or instructions on the internet (carefully) to install it.
 
 #### Easy install of a Payload with a .deb file
-Sometimes you can install a payload on the Bashbunny by downloading a ```.deb```-file, copy it to the USB mass storage device into the root folder and re-mount the device such that it will automatically install the payload.
+Sometimes you can install a payload on the Bashbunny by downloading a ```.deb```-file, copy it to the USB mass storage device into the tools (```Bashbunny/tools/```) folder and re-mount the device such that it will automatically installs the payload.
 See https://forums.hak5.org/topic/40971-info-tools/ for some of these ```.deb``` files. 
 
 The ```.deb``` file is just an archive (like .zip files) which is executed automatically by the Bashbunny next time the Bashbunny is launched into Arming Mode. 
@@ -190,6 +190,8 @@ mv /media/${USER}/BashBunny/tools/Responder-master /media/${USER}/BashBunny/tool
 Now make sure to check out the file ```Responder.py``` to ensure the python script does not need additional libraries/dependencies. 
 You can also verify this quickly by running the ```Responder.py``` directly through a shell on the Bashbunny and see if it executes without errors.
 
+**Note: After unmounting and mounting the USB mass storage device, the libraries in the tools folder will disappear because they are moved from the USB partition to the actual OS filesystem. This is totally intended behaviour and do not worry.**
+
 ## Starting guide for shell access
 While the bashbunny can operate as a Mass storage device, it also runs its own 
 lightweight OS (a linux distribution). If you want to interact with the bashbunny 
@@ -229,8 +231,7 @@ Linux bunny 3.4.39 #19 SMP PREEMPT Fri Jan 29 09:19:02 UTC 2021 armv7l
  Bash Bunny by Hak5     USB Attack/Automation Platform
 
 ```
-Now you can explore the files (filesystem) directly, when you use ```ls``` in the root directory of 
-the Bashbunny the following two files appear:
+Now you can explore the files in the root homedirectory, when you use ```ls``` in this directory the following two files appear:
 ```commandline
 root@bunny:~# ls
 udisk  version.txt
@@ -256,6 +257,8 @@ root@bunny:~# ls /root/udisk
 ```
 
 From here you have complete read/write/execute access to your bashbunny! This gives you much more control, and is very helpful when debugging certain payloads you want to run.
+
+Remember you can add software and ```.deb``` files in the ```tools``` folder on the USB mass storage device? They disappear after unmounting and mounting the bashbunny. This is because the OS moves the files from this folder to the ```/tools``` folder in the **system root directory**. When you connect with the bashbunny through screen, make sure to go 1 directory higher with the ```cd ..``` command which directs you to the system root directory. In here (above many other directories) you'll find a ```tools``` directory as well. This directory will actually contain the payloads you have added thorugh the USB mass storage device. 
 
 # Debugging payloads
 Lets go back to the example of installing the ```QuickCreds``` payload. Suppose you installed the tool as described 
